@@ -53,5 +53,8 @@ export default {
         margin-top: 2%;
         
     }
+    button{
+        background-color: turquoise;
+    }
 
 </style>
