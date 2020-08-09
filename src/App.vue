@@ -1,14 +1,15 @@
 <template>
   <div id="app">
-    <input type="text" v-model="clienteMauricio.nome"/>
+    <h3>Cadastro: </h3>
+    <input type="text" placeholder="nome" v-model="nomeField"><br>
+    <input type="text" placeholder="email" v-model="emailField"><br>
+    <input type="number" placeholder="idade" v-model="idadeField">
+    <button @click="cadastrarUsuario">Cadastrar</button>
+    <hr>
 
     <div v-for="(cliente, index) in clientes" :key="cliente.id">
       <p>{{index}}</p>
       <cliente :cliente="cliente"/>
-      <hr>
-      <h4>Edição: </h4>
-      <input type="text" v-model="cliente.nome">
-      <input type="text" v-model="cliente.email">
     </div>
   </div>
 </template>
@@ -19,42 +20,31 @@ export default {
   name: 'App',
   data(){
           return{
-            clienteMauricio: {
-              nome: "Mauricio",
-              email: "mauricio.nunes@beaudio.com",
-              idade: 23
-            },
-            clientes: [
+            nomeField: "",
+            emailField: "",
+            idadeField: 0,
+          clientes: [
               {
                 id: 0,
                 nome: "Mauricio Nunes",
                 email: "mauricio.nunes@beaudio.com.br",
                 idade: 23
               },
-              {
-                id: 1,
-                nome: "Jhenifer",
-                email: "jhenifer_de_melo@hotmail.com",
-                idade: 20
-              },
-              {
-                id: 2,
-                nome: "Theo",
-                email: "theo@gmail.com",
-                idade: "10 meses"
-              },
-                            {
-                id: 3,
-                nome: "Theo",
-                email: "theo@gmail.com",
-                idade: "10 meses"
-              }
+
             ]
           }
   },
   components: {
     cliente,
     //produto
+  },
+  methods: {
+    cadastrarUsuario: function(){
+      this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
+      this.nomeField = ''
+      this.emailField = ''
+      this.idadeField = ''
+    }
   }
 
 }
