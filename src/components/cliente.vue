@@ -5,7 +5,7 @@
         <p v-if="2 == 3">Idade: {{cliente.idade}}</p>
         <p v-else>Não informado</p>
         <button @click="mudarCor($event)">Mudar cor</button>
-        
+        <button @click="emitirEventoDelete">Deletar</button>
 
     </div>
 </template>
@@ -26,7 +26,14 @@ export default {
         mudarCor: function($event){
             console.log($event)
             this.isPremium = !this.isPremium
-            
+        },
+        emitirEventoDelete: function(){
+            console.log("Emitindo do filho!")
+            this.$emit("meDelete", {idCliente: this.cliente.id, curso: "Vue", emProducao: true, component: this})
+        },
+        testar: function(){
+            console.log('Testando para valer')
+            alert("Isso é um alert")
         }
     }
     
