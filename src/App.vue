@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h3>Cadastro: </h3>
+    <small id="nomeErro" v-show="deuErro">Nenhum dos campos pode ficar em branco!</small><br>
     <input type="text" placeholder="nome" v-model="nomeField"><br>
     <input type="text" placeholder="email" v-model="emailField"><br>
     <input type="number" placeholder="idade" v-model="idadeField">
@@ -20,6 +21,7 @@ export default {
   name: 'App',
   data(){
           return{
+            deuErro: false,
             nomeField: "",
             emailField: "",
             idadeField: 0,
@@ -40,10 +42,19 @@ export default {
   },
   methods: {
     cadastrarUsuario: function(){
+      if(this.nomeField == '' || this.emailField == '' || this.idadeField == ''){
+        this.deuErro = true
+      }else{
       this.clientes.push({nome: this.nomeField, email: this.emailField, idade: this.idadeField, id: Date.now()})
       this.nomeField = ''
       this.emailField = ''
       this.idadeField = ''
+
+
+
+      
+      this.deuErro = false
+     }
     }
   }
 
@@ -51,5 +62,7 @@ export default {
 </script>
 
 <style>
-
+#nomeErro{
+  color: red;
+}
 </style>
