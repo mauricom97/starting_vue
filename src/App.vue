@@ -4,7 +4,7 @@
     <small id="nomeErro" v-show="deuErro">Nenhum dos campos pode ficar em branco!</small><br>
     <input type="text" placeholder="nome" v-model="nomeField"><br>
     <input type="text" placeholder="email" v-model="emailField"><br>
-    <input type="number" placeholder="idade" v-model="idadeField">
+    <input type="number" placeholder="idade" v-model="idadeField"><br><br>
     <button @click="cadastrarUsuario">Cadastrar</button>
     <hr>
 

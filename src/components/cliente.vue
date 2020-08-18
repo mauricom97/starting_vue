@@ -1,7 +1,7 @@
 <template>
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <p>Nome:  {{cliente.nome}}</p>
-        <p>Email: {{cliente.email}}</p>
+        <p>Email: {{cliente.email | processarEmail}}</p>
         <p v-if="2 == 3">Idade: {{cliente.idade}}</p>
         <p v-else>Não informado</p>
         <button @click="mudarCor($event)">Mudar cor</button>
@@ -34,6 +34,11 @@ export default {
         testar: function(){
             console.log('Testando para valer')
             alert("Isso é um alert")
+        }
+    },
+    filters: {
+        processarEmail: function(value){
+            return value.toUpperCase();
         }
     }
     
