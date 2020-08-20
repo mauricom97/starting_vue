@@ -2,11 +2,11 @@
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <p>Nome:  {{cliente.nome}}</p>
         <p>Email: {{cliente.email | processarEmail}}</p>
-        <p v-if="2 == 3">Idade: {{cliente.idade}}</p>
+        <p v-if="3 == 3">Idade: {{cliente.idade}}</p>
         <p v-else>Não informado</p>
         <button @click="mudarCor($event)">Mudar cor</button>
         <button @click="emitirEventoDelete">Deletar</button>
-        
+
 
     </div>
 </template>
@@ -49,6 +49,7 @@ export default {
 
 <style  scoped>
     .cliente{
+        border-radius: 20px;
         background-color: cadetblue;
         max-width: 520px;
         height: 250px;
@@ -58,6 +59,7 @@ export default {
     }
 
     .cliente-premium{
+        border-radius: 20px;
         background-color: black;
         color: yellow;
         max-width: 520px;
