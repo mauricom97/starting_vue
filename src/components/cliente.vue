@@ -2,7 +2,7 @@
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <p>Nome:  {{cliente.nome}}</p>
         <p>Email: {{cliente.email | processarEmail}}</p>
-        <p v-if="3 == 3">Idade: {{cliente.idade}}</p>
+        <p v-if="cliente.idade != '' ">Idade: {{cliente.idade}}</p>
         <p v-else>Não informado</p>
         <button @click="mudarCor($event)">Mudar cor</button>
         <button @click="emitirEventoDelete">Deletar</button>
