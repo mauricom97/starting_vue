@@ -6,6 +6,7 @@
         <p v-else>Não informado</p>
         <button @click="mudarCor($event)">Mudar cor</button>
         <button @click="emitirEventoDelete">Deletar</button>
+        
 
     </div>
 </template>
