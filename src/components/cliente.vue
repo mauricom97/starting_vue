@@ -7,8 +7,6 @@
         <button @click="mudarCor($event)">Mudar cor</button>
         <button @click="emitirEventoDelete">Deletar</button>
         <h4>Id especial: {{idEspecial}}</h4>
-
-
     </div>
 </template>
 
@@ -61,8 +59,7 @@ export default {
         height: 250px;
         padding: 2%;
         margin-top: 2%;
-        
-    }
+        }
 
     .cliente-premium{
         border-radius: 20px;
@@ -72,8 +69,7 @@ export default {
         height: 250px;
         padding: 2%;
         margin-top: 2%;
-        
-    }
+        }
     button{
         background-color: turquoise;
     }
